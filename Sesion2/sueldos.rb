@@ -38,4 +38,4 @@ puts trabajador1.nombre
 puts trabajador1.calcularSueldoFinal
 puts trabajador1.calcularBono
 puts trabajador1.calcularBono2
-puts "---------------------"
+puts "---------------------:)"
