@@ -1,0 +1,3 @@
+git commit -m "first commit"
+git remote add origin https://github.com/pciscflo/poo_viernes_w42a.git
+git push -u origin master

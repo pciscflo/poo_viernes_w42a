@@ -1,6 +1,6 @@
-class Cliente 
+class Cliente
 	attr_accessor :nombre, :direccion, :dni
-	def initialize(nombre,direccion,dni)
+	def initialize(nombre, direccion, dni)
 		@nombre = nombre
 		@direccion = direccion
 		@dni = dni
@@ -9,23 +9,23 @@ end
 
 class Celular
 	attr_accessor :saldo
-	def initialize(numeroCelular,codigoCiudad,saldo)
-		@numeroCelular = numeroCelular
-		@codigoCiudad = codigoCiudad
-		@saldo	= saldo
+	def initialize (numero, codigodeciudad, saldo)
+		@numero = numero
+		@codigodeciudad = codigodeciudad
+		@saldo = saldo
 	end
 	def recargar(monto)
-		@saldo = saldo + monto
-	end	
-end
+		@saldo = @saldo + monto 
+	end 
+end 
 
-cli = Cliente.new("Carmen", "Lima", "88888888")
-celu = Celular.new("99999999", 12, 100)
+cli = Cliente.new("raul", "lima", "9999999")
+celu = Celular.new("999999999", 15, 100000)
 
 puts "Nombre:#{cli.nombre}"
-puts "Saldo inicial : #{celu.saldo}"
+puts "Saldo inicial :#{celu.saldo}"
 celu.recargar(30)
-puts "Saldo final :  #{celu.saldo}"
+puts "saldo final : #{celu.saldo}"
 
 
 
