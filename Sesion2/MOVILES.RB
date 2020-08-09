@@ -24,7 +24,7 @@ celu = Celular.new("999999999", 15, 100000)
 
 puts "Nombre:#{cli.nombre}"
 puts "Saldo inicial :#{celu.saldo}"
-celu.recargar(30)
+celu.recargar(30) #no retorna valor sólo actualiza
 puts "saldo final : #{celu.saldo}"
 
 
