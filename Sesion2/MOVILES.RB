@@ -15,7 +15,7 @@ class Celular
 		@saldo = saldo
 	end
 	def recargar(monto)
-		@saldo = @saldo + monto 
+		@saldo = @saldo + monto
 	end 
 end 
 
