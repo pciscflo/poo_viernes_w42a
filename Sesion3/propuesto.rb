@@ -39,15 +39,13 @@ class Verterinaria
     end
 
     def calcularPromedioDePesos()
-     sumaPesos = 0
-	 promedio = 0
-	  for mascota in arregloMascotas
-            sumaPesos += mascota.peso  
-       end
-
-       promedio = sumaPesos / arregloMascotas.size
-       return promedio
-
+      sumaPesos = 0
+  	  promedio = 0
+  	  for mascota in arregloMascotas
+              sumaPesos += mascota.peso  
+      end
+      promedio = sumaPesos*1.0 / arregloMascotas.size
+      return promedio
     end
 end
 
@@ -61,7 +59,7 @@ veterianaria.agregarMascota(mascota2)
 veterianaria.agregarMascota(mascota3)
 puts veterianaria.cantidadMascotas("vacunado")
 puts veterianaria.cantidadMascotas("no vacunado")
-puts veterianaria.calcularPromedioDePesos()
+puts veterianaria.calcularPromedioDePesos().round(2)
 
 
 

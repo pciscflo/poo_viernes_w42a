@@ -53,7 +53,16 @@ class Administrador
          end
          return sumaSueldosContratados/contadorContratados
 	end
-
+	def obtenerListadSueldos
+		temp = []
+		for trabajador in arregloTrabajadores
+           if trabajador.calcularSueldo>1300
+           	 temp.push(trabajador)
+           end
+		end
+		return temp
+	end
+	
 end
 
 adm = Administrador.new
@@ -63,6 +72,10 @@ t3 = Trabajador.new("Asociado", 60, 30)
 adm.registrar(t1)
 adm.registrar(t2)
 adm.registrar(t3)
+puts "**** Listado de mas de 1300 ***********88"
+for trabajador in adm.obtenerListadSueldos
+	puts "#{trabajador.horas}  -  #{trabajador.calcularSueldo}"
+end
 puts "Total de Sueldos #{adm.calcularTotalSueldos}"
 
 
