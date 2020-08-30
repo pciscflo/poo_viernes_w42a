@@ -7,6 +7,13 @@ class Concursante
 		@edad =edad
 		@cantidadMensajesTxt = cantidadMensajesTxt
 	end
+	def esMayor
+		if edad>=18
+			return true
+		else
+			return false				
+		end
+	end
 	def calcularPuntaje
 	end
 end
@@ -43,7 +50,11 @@ class Administrador
 		@arregloConcursantes = []
 	end
 	def registrar(concursante)
-		arregloConcursantes.push(concursante)
+		if concursante.esMayor
+		   arregloConcursantes.push(concursante)
+		else
+			puts "No es mayor de edad"
+		end
 	end
 	def imprimirListadoConcursantes
        for concursante in arregloConcursantes
@@ -61,11 +72,19 @@ class Administrador
        end
        return objeto
 	end
+	def obtenerConcursante(dni)
+		for concursante in arregloConcursantes
+           if concursante.dni == dni 
+           	 return concursante
+           end
+		end
+		return nil
+	end
 end
 
 ### test ########
 
-fan1 = FanMasacre.new("88888888", "Anibal", "Pardo", 28, 200, "nuclear", 100, 150)
+fan1 = FanMasacre.new("88888888", "Anibal", "Pardo", 12, 200, "nuclear", 100, 150)
 fan2 = FanMasacre.new("99999999", "Carmen", "Loret", 32, 130, "nuclear", 80, 120)
 tev1 = Televidente.new("77777777", "Luis", "Perez", 29, 200, "3484859", 140)
 
@@ -84,5 +103,9 @@ va = administrador.arregloConcursantes
 for concursante in va
 	puts "#{concursante.nombre}   #{concursante.apellido}  #{concursante.calcularPuntaje}"
 end
-
+puts "******* Buscar concursante dni=99999999 **********"
+con = administrador.obtenerConcursante("99999999555")
+if con!=nil
+puts "Concursante encontrado: #{con.nombre}"
+end
 
