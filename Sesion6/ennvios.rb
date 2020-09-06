@@ -45,21 +45,16 @@ class Jefe
 		@arregloEnvios = []
 	end
 	def registrar(envio)
-       if validarCodigo(envio.codigoEnvio) == false
+         validarCodigo(envio.codigoEnvio)
        	 puts "Registrando el envio"
 		 arregloEnvios.push(envio)
-	   else
-          puts "Codigo ya existe"
-	   end
-
 	end
 	def validarCodigo(codigo) # return true si lo encuentra 
 		for envio in arregloEnvios
 			if envio.codigoEnvio == codigo
-				return true
+				raise "El codigo ya existe"
 			end
 		end
-		return false
 	end
 	def calcularCostoEnvio(codigoEnvio)
        for envio in arregloEnvios
@@ -86,11 +81,32 @@ em2 = EnvioMaritimo.new("003", 220, 2, "El Naviero")
 em3 = EnvioMaritimo.new("003", 212, 1, "El Pozo")
 emu2 = EnvioUltramarino.new("004", 50, 4, "EMP02", "Juan Perez")
 jefe = Jefe.new
-jefe.registrar(em1)
-jefe.registrar(emu1)
-jefe.registrar(em2)
-jefe.registrar(em3)
-jefe.registrar(emu2)
+begin
+    jefe.registrar(em1)
+rescue Exception =>e
+   puts e.message
+end
+begin
+   jefe.registrar(emu1)
+rescue Exception =>e
+   puts e.message
+end
+begin
+   jefe.registrar(em2)
+rescue Exception =>e
+   puts e.message
+end
+begin
+   jefe.registrar(em3)
+rescue Exception =>e
+   puts e.message
+end
+begin
+   jefe.registrar(emu2)
+rescue Exception =>e
+   puts e.message
+end
+
 jefe.imprimirEnviosMaritimos
 puts jefe.calcularCostoEnvio("001")
 
