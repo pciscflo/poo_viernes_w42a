@@ -47,7 +47,7 @@ class Jefe
 	def registrar(envio)
          validarCodigo(envio.codigoEnvio)
        	 puts "Registrando el envio"
-		 arregloEnvios.push(envio)
+		     arregloEnvios.push(envio)
 	end
 	def validarCodigo(codigo) # return true si lo encuentra 
 		for envio in arregloEnvios
