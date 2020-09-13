@@ -46,7 +46,7 @@ class Jefe
 	end
 	def registrar(envio)
          validarCodigo(envio.codigoEnvio)
-       	 puts "Registrando el envio"
+       	 #puts "Registrando el envio"
 		     arregloEnvios.push(envio)
 	end
 	def validarCodigo(codigo) # return true si lo encuentra 
@@ -65,12 +65,14 @@ class Jefe
        return nil
 	end
 
-	def imprimirEnviosMaritimos
+	def obtenerEnviosMaritimos
+        temporal = []
         for envio in arregloEnvios
         	if  envio.dameTipo == "Maritimo"
-                puts "#{envio.codigoEnvio} .....#{envio.volumenMetrico}"
+                temporal.push(envio)
             end
         end
+        return temporal
     end
 end
 
